@@ -8,6 +8,7 @@ export declare class MongoDBLogSyncer extends LogSyncer {
     private applicationLogs;
     constructor(url: string, dbname: string);
     connect(): Promise<void>;
+    private createIndexes;
     syncAccessLog(log: AccessLog): Promise<void>;
     syncLoginLog(log: ApplicationLog): Promise<void>;
     syncApplicationLog(log: ApplicationLog): Promise<void>;

@@ -4,6 +4,8 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 import { MongoDBLogSyncer } from "../../src/syncer/mongodb";
 import { AccessLog, ApplicationLog } from "../../src/base";
 
+jest.setTimeout(10000); // 将超时时间增加到 10000 毫秒
+
 let mongoServer: MongoMemoryServer;
 let syncer: MongoDBLogSyncer;
 

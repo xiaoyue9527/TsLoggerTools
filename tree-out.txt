@@ -1,4 +1,5 @@
 /media/plyue/662C8A672C8A31DB6/package/npm/TsLoggerTools
+├── README.MD
 ├── eslint.config.mjs
 ├── jest.config.js
 ├── lib
@@ -13,6 +14,8 @@
 |  ├── index.d.ts
 |  ├── index.js
 |  └── syncer
+|     ├── index.d.ts
+|     ├── index.js
 |     ├── mongodb.d.ts
 |     └── mongodb.js
 ├── package-lock.json
@@ -24,14 +27,16 @@
 |  |  └── index.ts
 |  ├── index.ts
 |  └── syncer
+|     ├── index.ts
 |     └── mongodb.ts
 ├── test
 |  └── syncer
+|     ├── LogManager.test.ts
 |     └── mongodb.test.ts
 ├── tree-out.txt
 ├── tsconfig.build.json
 └── tsconfig.json
 
-directory: 1076 file: 8821
+directory: 1076 file: 8826
 
 ignored: directory (147)

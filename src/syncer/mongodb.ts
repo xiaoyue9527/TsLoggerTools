@@ -14,12 +14,36 @@ export class MongoDBLogSyncer extends LogSyncer {
     super();
     this.client = new MongoClient(url);
     this.db = this.client.db(dbname);
-    this.accessLogs = this.db.collection("accessLogs");
-    this.applicationLogs = this.db.collection("applicationLogs");
+    this.accessLogs = this.db.collection<AccessLog>("accessLogs");
+    this.applicationLogs =
+      this.db.collection<ApplicationLog>("applicationLogs");
   }
 
   async connect(): Promise<void> {
     await this.client.connect();
+    console.info("日志MongoDB数据库初始化完毕");
+
+    // 创建索引
+    await this.createIndexes();
+  }
+  private async createIndexes(): Promise<void> {
+    if (this.accessLogs) {
+      await this.accessLogs.createIndex({ traceId: 1 });
+      await this.accessLogs.createIndex({ timestamp: 1 });
+      await this.accessLogs.createIndex({ ipAddress: 1 });
+      await this.accessLogs.createIndex({ userId: 1 });
+      await this.accessLogs.createIndex({ userId: 1, timestamp: -1 });
+    }
+
+    if (this.applicationLogs) {
+      await this.applicationLogs.createIndex({ traceId: 1 });
+      await this.applicationLogs.createIndex({ timestamp: 1 });
+      await this.applicationLogs.createIndex({ userId: 1 });
+      await this.applicationLogs.createIndex({ spanId: 1 });
+      await this.applicationLogs.createIndex({ parentSpanId: 1 });
+      await this.applicationLogs.createIndex({ eventType: 1 });
+      await this.applicationLogs.createIndex({ userId: 1, timestamp: -1 });
+    }
   }
 
   async syncAccessLog(log: AccessLog): Promise<void> {
