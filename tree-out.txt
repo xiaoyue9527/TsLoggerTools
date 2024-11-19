@@ -7,6 +7,8 @@
 |  |  ├── index.test.d.ts
 |  |  └── index.test.js
 |  ├── base
+|  |  ├── LogStoreIndex.d.ts
+|  |  ├── LogStoreIndex.js
 |  |  ├── LogSyncer.d.ts
 |  |  ├── LogSyncer.js
 |  |  ├── index.d.ts
@@ -17,26 +19,33 @@
 |     ├── index.d.ts
 |     ├── index.js
 |     ├── mongodb.d.ts
-|     └── mongodb.js
+|     ├── mongodb.js
+|     ├── sls.d.ts
+|     └── sls.js
 ├── package-lock.json
 ├── package.json
 ├── release.sh
 ├── src
 |  ├── base
+|  |  ├── LogStoreIndex.ts
 |  |  ├── LogSyncer.ts
 |  |  └── index.ts
 |  ├── index.ts
 |  └── syncer
 |     ├── index.ts
-|     └── mongodb.ts
+|     ├── mongodb.ts
+|     └── sls.ts
 ├── test
 |  └── syncer
 |     ├── LogManager.test.ts
 |     └── mongodb.test.ts
 ├── tree-out.txt
 ├── tsconfig.build.json
-└── tsconfig.json
+├── tsconfig.json
+└── type
+   ├── aliyun-sdk.d.ts
+   └── index.d.ts
 
-directory: 1076 file: 8826
+directory: 1257 file: 10273
 
-ignored: directory (147)
+ignored: directory (165)
